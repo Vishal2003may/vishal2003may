@@ -1,0 +1,53 @@
+import logo from './logo.svg';
+import './App.css';
+
+import { useState } from 'react';
+
+function App() {
+
+  const [num1, setnum1] = useState();
+  const [num2, setnum2] = useState();
+
+
+  const sum = () => {
+
+    if(!num1 || !num2){
+      alert('Please Enter the numbers')
+      return;
+    }
+
+    const number1 = parseFloat(num1);
+    const number2 = parseFloat(num2);
+
+    
+
+    let sum = (number1 + number2);
+
+    alert(Sum of ${num1} and ${num2} is ${sum});
+    // alert(sum)
+  }
+
+  return (
+    <div className="App">
+      <div>
+        <div className="inputs">
+          <label htmlFor="">Num 1</label>
+          <input type="text" placeholder='Enter number1' value={num1} onChange={(e) => { setnum1(e.target.value) }} />
+
+          <label htmlFor="">Num 2</label>
+          <input type="text" placeholder='Enter number2' value={num2} onChange={(e) => { setnum2(e.target.value) }} />
+        </div>
+
+        <div>
+          <button onClick={() => {sum()}}>Add</button>
+        </div>
+
+
+      </div>
+
+
+    </div>
+  );
+}
+
+export default App;
